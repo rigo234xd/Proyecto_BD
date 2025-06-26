@@ -8,8 +8,8 @@ class Asociacion(Base):
 
     id = Column(Integer, primary_key=True)
     nombre = Column(Text, nullable=False)
-    pais_aso = Column(Text, nullable=False)
-    ciudad_aso = Column(Text, nullable=False)
+#    pais_aso = Column(Text, nullable=False)
+#    ciudad_aso = Column(Text, nullable=False)
 
     jugadores = relationship("Jugador", back_populates="asociacion_rel")
 
@@ -62,9 +62,9 @@ class Jugador(Base):
     genero_jugador = Column(Text, nullable=False)
     pais_jugador = Column(Text, nullable=False)
     ciudad_jugador = Column(Text, nullable=False)
-    asociacion = Column(Integer, ForeignKey("asociacion.id"))
-    equipo = Column(Integer, ForeignKey("equipo.id"), nullable=False)
-    inscripcion = Column(Integer, ForeignKey("inscripcion.id"), nullable=False)
+    asociacion = Column(Integer, ForeignKey("asociacion.id"), nullable= True)
+    equipo = Column(Integer, ForeignKey("equipo.id"), nullable=True)
+    inscripcion = Column(Integer, ForeignKey("inscripcion.id"), nullable=True)
 
     asociacion_rel = relationship("Asociacion", back_populates="jugadores")
     equipo_rel = relationship("Equipo", back_populates="jugadores")
