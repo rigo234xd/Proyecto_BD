@@ -8,8 +8,8 @@ class Asociacion(Base):
 
     id = Column(Integer, primary_key=True)
     nombre = Column(Text, nullable=False)
-#    pais_aso = Column(Text, nullable=False)
-#    ciudad_aso = Column(Text, nullable=False)
+    pais_aso = Column(Text, nullable=False)
+    ciudad_aso = Column(Text, nullable=False)
 
     jugadores = relationship("Jugador", back_populates="asociacion_rel")
 

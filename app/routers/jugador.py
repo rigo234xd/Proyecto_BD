@@ -19,8 +19,8 @@ def get_jugadores_endpoint(Session=Depends(get_db)):
         "nombre": j.nombre,
         "fecha_nacimiento": j.fecha_nacimiento,
         "genero": j.genero_jugador,
-        "pais": j.pais,
-        "ciudad": j.ciudad,
+        "pais": j.pais_jugador,
+        "ciudad": j.ciudad_jugador,
         "asociacion": {
         "id": j.asociacion_rel.id,
         "nombre":j.asociacion_rel.nombre
