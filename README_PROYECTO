@@ -5,6 +5,15 @@ Max coñoman
 Rigoberto Alvarado
 
 Instrucciones de uso:
+1) Creamos nuestro archivo .env para poder acceder a nuestra base de datos con el comando "cp sample.env .env" y editamos los paramentros que estan a continuación: 
+"DATABASE_URI=postgresql://usuario:password@localhost:5432/mi_base", solo es necesario cambiar el usuario, password y mi_base.
+
+2) debemos configurar nuestro entorno virtual (no es obligatorio, pero totalmente recomendable) para ello empezamos usando el comando "python -m venv env" y luego lo activamos
+con ".\env\Scripts\activate" en Windows o source "env/bin/activate" en Linux o Mac.
+
+3) Instamos las dependencias con el comando "pip install -r requirements.txt"
+
+4) ahora solo nos quedan las migraciones, para crear nuestro modelo usamos: alembic revision --autogenerate -m "primer modelo" y lo subimos con "alembic upgrade head"
 
 Enunciado:
 
