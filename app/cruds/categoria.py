@@ -1,17 +1,7 @@
 from sqlalchemy.orm import Session
-
 from ..models import Categoria
 
-def create_categoria(
-    session: Session,
-    edad_min: int,
-    edad_max: int,
-    genero_categoria: str,
-    sets_partido: int,
-    puntos_sets: int,
-    equipo: bool,
-    inscripcion_id: int
-):
+def create_categoria(session: Session, edad_min: int, edad_max: int, genero_categoria: str, sets_partido: int, puntos_sets: int, equipo: bool, inscripcion_id: int):
     categoria = Categoria(
         edad_min=edad_min,
         edad_max=edad_max,
@@ -23,6 +13,7 @@ def create_categoria(
     )
     session.add(categoria)
     session.commit()
+    session.refresh(categoria)
     return categoria
 
 def get_categorias(session: Session):
@@ -31,17 +22,7 @@ def get_categorias(session: Session):
 def get_categoria(session: Session, categoria_id: int):
     return session.get(Categoria, categoria_id)
 
-def update_categoria(
-    session: Session,
-    categoria_id: int,
-    edad_min: int,
-    edad_max: int,
-    genero_categoria: str,
-    sets_partido: int,
-    puntos_sets: int,
-    equipo: bool,
-    inscripcion_id: int
-):
+def update_categoria(session: Session, categoria_id: int, edad_min: int, edad_max: int, genero_categoria: str, sets_partido: int, puntos_sets: int, equipo: bool):
     categoria = session.get(Categoria, categoria_id)
     if categoria:
         categoria.edad_min = edad_min
@@ -50,8 +31,8 @@ def update_categoria(
         categoria.sets_partido = sets_partido
         categoria.puntos_sets = puntos_sets
         categoria.equipo = equipo
-        categoria.inscripcion = inscripcion_id
         session.commit()
+        session.refresh(categoria)
     return categoria
 
 def delete_categoria(session: Session, categoria_id: int):
@@ -59,5 +40,4 @@ def delete_categoria(session: Session, categoria_id: int):
     if categoria:
         session.delete(categoria)
         session.commit()
-        return categoria
-    return None
+    return categoria

@@ -1,11 +1,21 @@
 from sqlalchemy.orm import Session
+from ..models import Equipo, Jugador
 
-from ..models import Equipo
-
-def create_equipo(session: Session):
+def create_equipo(session: Session, jugador_id1: int, jugador_id2: int):
     equipo = Equipo()
     session.add(equipo)
+    session.flush()  # para que equipo tenga id sin hacer commit aún
+
+    jugador_ids= [jugador_id1, jugador_id2]
+
+    if jugador_ids:
+        jugadores = session.query(Jugador).filter(Jugador.id.in_(jugador_ids)).all()
+        for jugador in jugadores:
+            jugador.equipo = equipo.id  # asignamos FK directamente
+        session.flush()
+
     session.commit()
+    session.refresh(equipo)
     return equipo
 
 def get_equipos(session: Session):
@@ -13,10 +23,6 @@ def get_equipos(session: Session):
 
 def get_equipo(session: Session, equipo_id: int):
     return session.get(Equipo, equipo_id)
-
-def update_equipo(session: Session, equipo_id: int):
-    equipo = session.get(Equipo, equipo_id)
-    return equipo
 
 def delete_equipo(session: Session, equipo_id: int):
     equipo = session.get(Equipo, equipo_id)
