@@ -28,6 +28,7 @@ class Inscripcion(Base):
 
     id = Column(Integer, primary_key=True)
     equipo = Column(Integer, ForeignKey("equipo.id"), nullable=False)
+    jugadores = Column(Integer, ForeignKey("Jugador.id"), nullable= False)
 
     equipo_rel = relationship("Equipo", back_populates="inscripciones")
     jugadores = relationship("Jugador", back_populates="inscripcion_rel")

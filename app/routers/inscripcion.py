@@ -1,6 +1,7 @@
 # routers/inscripcion.py
 from fastapi import APIRouter, HTTPException, Depends
 from ..db import get_db
+from ..cruds.jugador import (get_jugador)
 from ..cruds.inscripcion import (
     create_inscripcion,
     get_inscripcion,
@@ -8,8 +9,7 @@ from ..cruds.inscripcion import (
     update_inscripcion,
     delete_inscripcion,
 )
-
-router = APIRouter(prefix="/inscripciones", tags=["Inscripciones"])
+router = APIRouter()
 
 @router.get("/")
 def get_inscripciones_endpoint(session=Depends(get_db)):
@@ -29,7 +29,7 @@ def get_inscripciones_endpoint(session=Depends(get_db)):
             "categorias": [
                 {
                     "id": c.id,
-                    "nombre": c.nombre,
+                    "nombre": c.genero_categoria,
                 } for c in i.categorias
             ] if i.categorias else [],
             "torneos": [
@@ -53,10 +53,11 @@ def get_inscripcion_endpoint(inscripcion_id: int, session=Depends(get_db)):
     }
 
 @router.post("/")
-def create_inscripcion_endpoint(equipo_id: int, session=Depends(get_db)):
-    inscripcion = create_inscripcion(session, equipo_id)
+def create_inscripcion_endpoint(equipo_id: int, jugador_id:int, session=Depends(get_db)):
+    inscripcion = create_inscripcion(session, equipo_id, jugador_id)
     return {
         "id": inscripcion.id,
+        "id_jugador":jugador_id,
         "equipo": inscripcion.equipo,
     }
 

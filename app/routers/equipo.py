@@ -29,12 +29,12 @@ def get_equipo_endpoint(equipo_id: int, session=Depends(get_db)):
 
 
 @router.post("/")
-def create_equipo_endpoint(session=Depends(get_db)):
-    equipo = create_equipo(session)
+def create_equipo_endpoint(jugador_id1: int, jugador_id2: int, session=Depends(get_db)):
+    equipo = create_equipo(session, jugador_id1, jugador_id2)
     return {
-    "id": equipo.id,
-    "jugadores": [jugador.id for jugador in equipo.jugadores]
-}
+        "id": equipo.id,
+        "jugadores": [jugador.id for jugador in equipo.jugadores]
+    }
 
 @router.delete("/{equipo_id}")
 def delete_equipo_endpoint(equipo_id: int, session=Depends(get_db)):

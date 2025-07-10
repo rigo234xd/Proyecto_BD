@@ -1,10 +1,12 @@
 from sqlalchemy.orm import Session
 from ..models import Equipo, Jugador
 
-def create_equipo(session: Session, jugador_ids: list[int] = None):
+def create_equipo(session: Session, jugador_id1: int, jugador_id2: int):
     equipo = Equipo()
     session.add(equipo)
     session.flush()  # para que equipo tenga id sin hacer commit aún
+
+    jugador_ids= [jugador_id1, jugador_id2]
 
     if jugador_ids:
         jugadores = session.query(Jugador).filter(Jugador.id.in_(jugador_ids)).all()
