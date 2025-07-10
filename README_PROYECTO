@@ -1,14 +1,13 @@
 Nombres: 
-Benjamin Uribe
-Felipe Delgado
-Max coñoman
-Rigoberto Alvarado
+Benjamin Uribe.
+Felipe Delgado.
+Max Coñoman.
+Rigoberto Alvarado.
 
 Instrucciones de uso:
 1) Creamos nuestro archivo .env para poder acceder a nuestra base de datos con el comando "cp sample.env .env" y editamos los paramentros que estan a continuación: 
 "DATABASE_URI=postgresql://usuario:password@localhost:5432/mi_base", solo es necesario cambiar el usuario, password y mi_base.
 
-🔧 Activar entorno virtual de Python
 2) debemos configurar nuestro entorno virtual (no es obligatorio, pero totalmente recomendable) para ello empezamos usando el comando "python -m venv env" y luego lo activamos
 con ".\env\Scripts\activate" en Windows o source "env/bin/activate" en Linux o Mac.
 
