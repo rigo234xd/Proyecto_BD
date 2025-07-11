@@ -2,6 +2,7 @@
 from sqlalchemy.orm import Session
 from ..models import Inscripcion, Jugador
 
+#enlista el id del jugador para despues ser filtrado y ser ingresado el la inscripcion
 def create_inscripcion(session: Session, equipo_id: int, jugador_id: int):
     inscripcion = Inscripcion(equipo=equipo_id)
     session.add(inscripcion)
