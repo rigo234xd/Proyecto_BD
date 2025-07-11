@@ -5,7 +5,7 @@ from ..cruds.mesas import (
     create_mesas, 
     obtener_mesas, 
     obtener_mesas_por_torneo, 
-    eliminar_mesa,
+    delete_mesa,
 )
 
 router = APIRouter(prefix="/mesas", tags=["mesas"])
@@ -26,8 +26,8 @@ def obtener_mesas_por_torneo_endpoint(torneo_id: int, session=Depends(get_db)):
     return [{"id": m.id, "asignado": m.asignado, "torneo": m.torneo} for m in mesas]
 
 @router.delete("/{mesa_id}")
-def eliminar_mesa_endpoint(mesa_id: int, session=Depends(get_db)):
-    mesa = eliminar_mesa(session, mesa_id)
+def delete_mesa_endpoint(mesa_id: int, session=Depends(get_db)):
+    mesa = delete_mesa(session, mesa_id)
     if not mesa:
         raise HTTPException(status_code=404, detail="Mesa no encontrada")
     return {"detalle": "Mesa eliminada exitosamente"}
