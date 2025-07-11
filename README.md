@@ -4,6 +4,21 @@ Este proyecto usa **SQLAlchemy** como ORM y **Alembic** para las migraciones, co
 
 ---
 
+# participentes:
+-Benjamin uribe
+-Max Coñoman
+-Rigoberto Alvarado
+-Angelo Reyes
+
+---
+
+#enunciado
+
+
+
+
+---
+
 ## 🔧 Configuración rápida
 
 1. **Copia y edita la configuración**
