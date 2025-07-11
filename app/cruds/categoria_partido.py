@@ -10,7 +10,7 @@ def create_categoria_partido(session: Session, categoria_id: int, partido_id: in
 def get_categorias_partido(session: Session):
     return session.query(CategoriaPartido).all()
 
-def get_categoria_partido(session: Session, categoria_id: int, partido_id: int):
+def get_categoria_partido(session: Session, categoria_id: int, partido_id: int): #iltra la busqueda por los id de categoria y partido
     return session.query(CategoriaPartido).filter_by(categoria=categoria_id, partido=partido_id).first()
 
 def delete_categoria_partido(session: Session, categoria_id: int, partido_id: int):
