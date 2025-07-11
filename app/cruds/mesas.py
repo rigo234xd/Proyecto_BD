@@ -2,6 +2,7 @@
 from sqlalchemy.orm import Session
 from ..models import Mesas
 
+# crea las mesas en base a la cantidad que se solicite
 def create_mesas(session: Session, cantidad: int, torneo_id: int):
     mesas_creadas = []
     for _ in range(cantidad):
