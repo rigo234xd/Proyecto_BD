@@ -2,7 +2,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from ..db import get_db
 from ..cruds.mesas import (
-    crear_mesas, 
+    create_mesas, 
     obtener_mesas, 
     obtener_mesas_por_torneo, 
     eliminar_mesa,
@@ -11,7 +11,7 @@ from ..cruds.mesas import (
 router = APIRouter(prefix="/mesas", tags=["mesas"])
 
 @router.post("/")
-def crear_mesas_endpoint(cantidad: int, torneo_id: int, session=Depends(get_db)):
+def create_mesas_endpoint(cantidad: int, torneo_id: int, session=Depends(get_db)):
     mesas = crear_mesas(session, cantidad, torneo_id)
     return [{"id": m.id, "asignado": m.asignado, "torneo": m.torneo} for m in mesas]
 
