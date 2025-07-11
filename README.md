@@ -27,15 +27,15 @@ partido y cuántos puntos se requieren para ganar un set, ya que estas reglas pu
 
 El sistema debe gestionar:
 
-Información de jugadores: nombre, fecha de nacimiento, género, ciudad, país, asociación (si corresponde).
-Información de asociaciones: nombre, ciudad, país.
-Información de torneos: nombre, fechas de inscripción y competencia, mesas disponibles.
-Información de categorías como entidades maestras (edad mínima, edad máxima, género, sets por partido, puntos por set).
-Participación de jugadores individuales y equipos de dobles en categorías específicas dentro de un torneo.
-Partidos: tipo (individual o dobles), participantes, horario, mesa asignada y resultados.
-Gestión de la fase de grupos, con asignación de participantes a grupos y partidos dentro de cada grupo.
-Gestión de la eliminación directa, incluyendo rondas, posiciones en la llave, y manejo de Byes.
-Registro de resultados por set en cada partido, tanto en individuales como dobles.
+Información de jugadores: nombre, fecha de nacimiento, género, ciudad, país, asociación (si corresponde).\
+Información de asociaciones: nombre, ciudad, país.\
+Información de torneos: nombre, fechas de inscripción y competencia, mesas disponibles. \
+Información de categorías como entidades maestras (edad mínima, edad máxima, género, sets por partido, puntos por set).\
+Participación de jugadores individuales y equipos de dobles en categorías específicas dentro de un torneo.\
+Partidos: tipo (individual o dobles), participantes, horario, mesa asignada y resultados.\
+Gestión de la fase de grupos, con asignación de participantes a grupos y partidos dentro de cada grupo.\
+Gestión de la eliminación directa, incluyendo rondas, posiciones en la llave, y manejo de Byes.\
+Registro de resultados por set en cada partido, tanto en individuales como dobles.\
 
 
 ---
