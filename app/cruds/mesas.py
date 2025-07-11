@@ -18,7 +18,7 @@ def obtener_mesas(session: Session):
 def obtener_mesas_por_torneo(session: Session, torneo_id: int):
     return session.query(Mesas).filter(Mesas.torneo == torneo_id).all()
 
-def eliminar_mesa(session: Session, mesa_id: int):
+def delete_mesa(session: Session, mesa_id: int):
     mesa = session.get(Mesas, mesa_id)
     if mesa:
         session.delete(mesa)
