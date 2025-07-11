@@ -35,7 +35,7 @@ Participación de jugadores individuales y equipos de dobles en categorías espe
 Partidos: tipo (individual o dobles), participantes, horario, mesa asignada y resultados.\
 Gestión de la fase de grupos, con asignación de participantes a grupos y partidos dentro de cada grupo.\
 Gestión de la eliminación directa, incluyendo rondas, posiciones en la llave, y manejo de Byes.\
-Registro de resultados por set en cada partido, tanto en individuales como dobles. \
+Registro de resultados por set en cada partido, tanto en individuales como dobles. 
 
 
 ---
