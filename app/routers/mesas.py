@@ -12,7 +12,7 @@ router = APIRouter(prefix="/mesas", tags=["mesas"])
 
 @router.post("/")
 def create_mesas_endpoint(cantidad: int, torneo_id: int, session=Depends(get_db)):
-    mesas = crear_mesas(session, cantidad, torneo_id)
+    mesas = create_mesas(session, cantidad, torneo_id)
     return [{"id": m.id, "asignado": m.asignado, "torneo": m.torneo} for m in mesas]
 
 @router.get("/")
