@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from ..models import Equipo, Jugador
 
+#al momento de crear al equipo de jugadores los enlista en obligatoriamente 2 jugadores
 def create_equipo(session: Session, jugador_id1: int, jugador_id2: int):
     equipo = Equipo()
     session.add(equipo)
