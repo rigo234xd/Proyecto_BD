@@ -12,10 +12,10 @@ def create_mesas(session: Session, cantidad: int, torneo_id: int):
     session.commit()
     return mesas_creadas
 
-def obtener_mesas(session: Session):
+def get_mesas(session: Session):
     return session.query(Mesas).all()
 
-def obtener_mesas_por_torneo(session: Session, torneo_id: int):
+def get_mesas_por_torneo(session: Session, torneo_id: int):
     return session.query(Mesas).filter(Mesas.torneo == torneo_id).all()
 
 def delete_mesa(session: Session, mesa_id: int):
