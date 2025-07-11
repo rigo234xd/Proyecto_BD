@@ -3,8 +3,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from ..db import get_db
 from ..cruds.mesas import (
     create_mesas, 
-    obtener_mesas, 
-    obtener_mesas_por_torneo, 
+    get_mesas, 
+    get_mesas_por_torneo, 
     delete_mesa,
 )
 
@@ -16,13 +16,13 @@ def create_mesas_endpoint(cantidad: int, torneo_id: int, session=Depends(get_db)
     return [{"id": m.id, "asignado": m.asignado, "torneo": m.torneo} for m in mesas]
 
 @router.get("/")
-def obtener_mesas_endpoint(session=Depends(get_db)):
-    mesas = obtener_mesas(session)
+def get_mesas_endpoint(session=Depends(get_db)):
+    mesas = get_mesas(session)
     return [{"id": m.id, "asignado": m.asignado, "torneo": m.torneo} for m in mesas]
 
 @router.get("/torneo/{torneo_id}")
-def obtener_mesas_por_torneo_endpoint(torneo_id: int, session=Depends(get_db)):
-    mesas = obtener_mesas_por_torneo(session, torneo_id)
+def get_mesas_por_torneo_endpoint(torneo_id: int, session=Depends(get_db)):
+    mesas = get_mesas_por_torneo(session, torneo_id)
     return [{"id": m.id, "asignado": m.asignado, "torneo": m.torneo} for m in mesas]
 
 @router.delete("/{mesa_id}")
